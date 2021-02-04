@@ -1,6 +1,6 @@
 module.exports = (sequelize, DataTypes) => {
   const Rates = sequelize.define(
-    "Rates",
+    "rates",
     {
       value: {
         type: DataTypes.REAL,
