@@ -1,0 +1,31 @@
+# docker-compose.yml
+version: "3"
+services:
+  app:
+    build: .
+    init: true
+    restart: unless-stopped
+    environment:
+      CONNECTION_STRING: "postgresql://postgres:Ami16Azu04@db:5432/nodepsqldocker"
+    ports:
+      - "5000:3001"
+    volumes:
+      - .:/usr/src/app
+    #   network_mode: service:db
+    links:
+      - db
+
+  db:
+    image: postgres:latest
+    restart: unless-stopped
+    ports:
+      - 35432:5432
+    volumes:
+      - postgres-data:/var/lib/postgresql/data
+    environment:
+      POSTGRES_PASSWORD: Ami16Azu04
+      POSTGRES_USER: postgres
+      POSTGRES_DB: nodepsqldocker
+
+volumes:
+  postgres-data:
