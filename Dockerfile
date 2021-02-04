@@ -2,13 +2,13 @@ FROM node:14
 
 RUN mkdir -p /usr/src/app
 
-WORKDIR /usr/src/app
+WORKDIR /usr/src/app/backend
 
-COPY package*.json ./
+COPY backend/package*.json ./
 
 RUN apt-get update && apt-get install -y postgresql-client
 
-RUN cd backend && npm install
+RUN npm install
 
 COPY . .
 

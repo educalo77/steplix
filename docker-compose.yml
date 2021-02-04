@@ -10,7 +10,7 @@ services:
     ports:
       - "5000:3001"
     volumes:
-      - .:/usr/src/app
+      - .:/usr/src/app/
     links:
       - db
 
