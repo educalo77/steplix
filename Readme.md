@@ -10,6 +10,28 @@
 
 - Y a esta altura la api corre en http://localhost:5000
 
-- Cargar currency haciendo un post a http://localhost:5000/currencies
+- Cargar currency haciendo un post a http://localhost:5000/currencies de esta manera:
 
-- Cargar rate haciendo un post a http://localhost:5000/rates
+{
+"description": "bitcoin",
+"symbol": "BTC"
+}
+
+- Cargar rate haciendo un post a http://localhost:5000/rates de esta manera:
+
+{
+"id_currency": 1,
+"value": 11934.231233
+}
+
+- Todas estas rutas estan disponibles:
+
+  - GET localhost:5000/currencies
+
+  - GET localhost:5000/rates
+
+  - GET localhost:5000/rates/{symbol}
+
+  - POST localhost:5000/currencies
+
+  - POST localhost:5000/rates
