@@ -14,17 +14,33 @@ const createOne = (id_currency, value) => {
   });
 };
 
+// const getAll = (entrada) => {
+//   if (entrada === "btc") curId = 1;
+//   if (entrada === "eth") curId = 2;
+//   if (entrada === "ada") curId = 3;
+//   return new Promise((resolve, reject) => {
+//     Valor.findAll({
+//       where: { id_currency: curId },
+//       include: [Moneda],
+//     })
+//       .then((rates) => {
+//         resolve(rates[rates.length - 1]);
+//       })
+//       .catch((err) => reject(err));
+//   });
+// };
 const getAll = (entrada) => {
-  if (entrada === "btc") curId = 1;
-  if (entrada === "eth") curId = 2;
-  if (entrada === "ada") curId = 3;
+  const eNtrada = entrada.toUpperCase();
   return new Promise((resolve, reject) => {
     Valor.findAll({
-      where: { id_currency: curId },
       include: [Moneda],
     })
       .then((rates) => {
-        resolve(rates[rates.length - 1]);
+        const ratesfilter = rates.filter(
+          (element) => element.currency.symbol === eNtrada
+        );
+        const lastratefilter = ratesfilter[ratesfilter.length - 1];
+        resolve(lastratefilter);
       })
       .catch((err) => reject(err));
   });
