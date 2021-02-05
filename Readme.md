@@ -17,10 +17,30 @@
 "symbol": "BTC"
 }
 
+{
+"description": "etherum",
+"symbol": "ETH"
+}
+
+{
+"description": "cardano",
+"symbol": "ADA"
+}
+
 - Cargar rate haciendo un post a http://localhost:5000/rates de esta manera:
 
 {
 "id_currency": 1,
+"value": 11934.231233
+}
+
+{
+"id_currency": 2,
+"value": 0.0990881
+}
+
+{
+"id_currency": 3,
 "value": 11934.231233
 }
 
