@@ -3,12 +3,12 @@ const cookieParser = require("cookie-parser");
 const bodyParser = require("body-parser");
 const morgan = require("morgan");
 const cors = require("cors");
-const { conn } = require("./db");
 const routes = require("./routes/index.js");
-
-require("./db.js");
+const { sequelize } = require("../models/index");
 
 const app = express();
+
+const port = process.env.PORT || 3001;
 
 app.name = "API";
 
@@ -30,8 +30,7 @@ app.use(cors());
 
 app.use("/", routes);
 
-// Syncing all the models at once.
-conn.sync({ force: false }).then(() => {
+sequelize.sync({ force: false }).then(() => {
   app.listen(3001, () => {
     console.log("%s listening at 3001"); // eslint-disable-line no-console
   });

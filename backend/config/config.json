@@ -1,0 +1,16 @@
+{
+  "development": {
+    "username": "postgres",
+    "password": "Ami16Azu04",
+    "database": "nodepsqldocker",
+    "host": "db",
+    "dialect": "postgres"
+  },
+  "production": {
+    "username": "postgres",
+    "password": "Ami16Azu04",
+    "database": "nodepsqldocker",
+    "host": "db",
+    "dialect": "postgres"
+  }
+}

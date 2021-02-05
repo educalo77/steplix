@@ -1,4 +1,5 @@
-const { Moneda } = require("../db");
+const { db } = require("../../models/index");
+const Moneda = db.currency;
 
 const getAll = () => {
   return new Promise((resolve, reject) => {
@@ -12,7 +13,6 @@ const getAll = () => {
 
 const createOne = (description, symbol) => {
   return new Promise((resolve, reject) => {
-    console.log(description, symbol);
     Moneda.create({ description, symbol })
       .then((currency) => {
         resolve(currency);

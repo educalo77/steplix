@@ -1,4 +1,6 @@
-const { Valor, Moneda } = require("../db");
+const { db } = require("../../models/index");
+const Valor = db.rate;
+const Moneda = db.currency;
 
 const createOne = (id_currency, value) => {
   return new Promise((resolve, reject) => {
